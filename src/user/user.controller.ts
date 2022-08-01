@@ -5,6 +5,7 @@ import {
   Patch,
   UseGuards,
 } from '@nestjs/common';
+import { Users } from '@prisma/client';
 import { GetUser } from '../auth/decorator';
 import { JwtGuard } from '../auth/guard';
 import { EditUserDto } from './dto';
@@ -16,7 +17,7 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get('me')
-  getUser(@GetUser() user: any) {
+  getUser(@GetUser() user: Users) {
     return user;
   }
 
