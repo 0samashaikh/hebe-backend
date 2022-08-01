@@ -17,9 +17,9 @@ export class JwtStrategy extends PassportStrategy(
     private prisma: PrismaService,
   ) {
     super({
+      secretOrKey: 'ASDFGHJKL',
       jwtFromRequest:
         ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: config.get('JWT_SECRET'),
     });
   }
 
